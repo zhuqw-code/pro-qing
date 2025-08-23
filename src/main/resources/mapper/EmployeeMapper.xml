@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqw.mapper.EmployeeMapper">
+
+    <!--<select id="selectAll" resultType="com.zqw.entity.Employee">-->
+    <!--    select * from employee-->
+    <!--</select>-->
+    <insert id="add" parameterType="com.zqw.entity.Employee">
+        insert into employee (name, sex, no, age, description, department_id)
+        values(#{name}, #{sex}, #{no}, #{age}, #{description}, #{departmentId})
+    </insert>
+    <update id="modify">
+        update employee
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="no != null">no = #{no},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="departmentId != null">department_id = #{departmentId},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="fuzzyQuery" resultType="com.zqw.entity.Employee">
+        select id, name, sex, age, no, description, department_id
+        from employee
+        <where>
+            <if test="name != null">name like concat('%', #{name}, '%')</if>
+            <if test="sex != null">sex like concat('%', #{sex}, '%')</if>
+            <if test="age != null">age like concat('%', #{age}, '%')</if>
+            <if test="no != null">no like concat('%', #{no}, '%')</if>
+            <if test="description != null">description like concat('%', #{description}, '%')</if>
+            <if test="departmentId != null">department_id like concat('%', #{departmentId}, '%')</if>
+        </where>
+        order by department_id asc
+    </select>
+    <delete id="removeBatch">
+        delete from employee where id in
+                             <foreach collection="list" open="(" close=")" separator="," item="id">#{id}</foreach>
+    </delete>
+</mapper>

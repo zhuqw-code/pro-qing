@@ -1,0 +1,21 @@
+# spring.application.name=springboot-pro
+server:
+  port: 8080
+
+# ?????
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: hsp
+    url: jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+
+# ??mybatis
+mybatis:
+  ## ??xml????java????????
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    ### ????
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    ### ??????????
