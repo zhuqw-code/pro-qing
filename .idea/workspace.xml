@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7acc5e29-e0fc-46a9-90c3-2a02868e1dcb" name="Changes" comment="&quot;实现了文件上传功能&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/controller/ArticleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/mapper/ArticleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/service/ArticleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ArticleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Article.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +82,12 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zhuqw\Desktop\Project\框架\后端\springboot-pro\src\main\resources\mapper" />
+      <recent name="C:\Users\zhuqw\Desktop\Project\框架\后端\springboot-pro\src\main\java\com\zqw\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.zqw.controller" />
       <recent name="com.zqw.mapper" />
       <recent name="com.zqw.service" />
+      <recent name="com.zqw.controller" />
       <recent name="com.zqw.entity" />
     </key>
   </component>
@@ -188,7 +192,7 @@
       <workItem from="1756180192627" duration="9445000" />
       <workItem from="1756272915984" duration="4822000" />
       <workItem from="1756342272672" duration="10402000" />
-      <workItem from="1756373887286" duration="945000" />
+      <workItem from="1756373887286" duration="2493000" />
     </task>
     <servers />
   </component>
