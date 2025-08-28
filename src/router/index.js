@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', redirect:{name:'layout'}},   // 设置默认跳转路由
+    { path: '/', redirect:{name:'login'}},   // 设置默认跳转路由
     { path: '/home', name: 'home', component: () => import('../views/HomeView.vue')},
     { path: '/404', name: '404', component: () => import('../views/404.vue')},
     { path: '/:pathMatch(.*)', redirect: '/404'},   // 不合法页面跳转
@@ -14,12 +14,17 @@ const router = createRouter({
         { path: 'axios', name: 'axios', meta:{title:'测试交互'}, component: () => import('../views/AxiosTest.vue')},
     ]},        // 1.子路由路径不能以/开始，因为父路由会自动在后面增加/
                // 2.需要在父级中用router-view来标明组件的位置
-    { path: '/layout', name:"layout", component: () => import('../views/Layout.vue'), children:[
-        { path: 'data', name: 'data', component: () => import('../views/Data.vue') },
-        { path: 'employee', name: 'employee', component: () => import('../views/Employee.vue') },
+    { path: '/layout', meta:{title:'主页'}, name:"layout", component: () => import('../views/Layout.vue'), children:[
+        { path: 'data', meta:{title:'数据页面'}, name: 'data', component: () => import('../views/Data.vue') },
+        { path: 'employee',  meta:{title:'用户页面'}, name: 'employee', component: () => import('../views/Employee.vue') },
         { path: 'server', name: 'server', component: () => import('../views/Server.vue') },
         { path: 'own', name: 'own', component: () => import('../views/Own.vue') },
-      ]}
+        { path: 'admin', name: 'admin', component: () => import('../views/Admin.vue') },
+        { path: 'person', name: 'person', component: () => import('../views/Person.vue') },
+        { path: 'password', meta:{title:'修改密码'}, name: 'password', component: () => import('../views/Password.vue') },
+    ]},
+    { path: '/login', meta:{title:'登录页面'}, name: "login", component: () => import("../views/Login.vue") },
+    { path: '/register', meta:{title:'注册页面'}, name: "register", component: () => import("../views/Register.vue") }
   ],
 })
 // 添加路由守卫，在跳转之前进行路由合法性校验

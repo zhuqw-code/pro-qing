@@ -1,5 +1,5 @@
 <template>
-  <h1>员工管理</h1>
+  <h1>管理员信息</h1>
   <div>
     <div>
       <el-card style="margin-top:10px">
@@ -23,19 +23,14 @@
           -->
           <el-table-column type="selection" width="40px"/>
           <!--表格属性栏-->
-          <el-table-column label="头像">
+          <el-table-column label="头像" prop="avatar" width="80px">
             <template #default="scope">
-              <img v-if="scope.row.avatar" :src="scope.row.avatar" style="width:40px; height:40px; border-radius:50%">
+              <img v-if="scope.row.avatar" :src="scope.row.avatar" style="width:40px; height:40px; border-radius:50%"/>
             </template>
           </el-table-column>
-          <el-table-column label="名称" prop="name"></el-table-column>
-          <el-table-column label="用户名" prop="username"></el-table-column>
-          <el-table-column label="性别" prop="sex"></el-table-column>
-          <el-table-column label="编号" prop="no"></el-table-column>
-          <el-table-column label="年龄" prop="age"></el-table-column>
-          <el-table-column label="描述" prop="description" show-overflow-tooltip></el-table-column>
-          <!--show-overflow-tooltip：用于对多文字进行省略，鼠标悬浮会显示-->
-          <el-table-column label="部门id" prop="departmentId"></el-table-column>
+          <el-table-column label="账号" prop="username"></el-table-column>
+          <el-table-column label="姓名" prop="name"></el-table-column>
+          <el-table-column label="角色" prop="role"></el-table-column>
           <el-table-column label="操作">
             <template #default="scope">     <!--获取到行对象-->
               <el-button circle @click="handleUpdate(scope.row)" type="primary">  <!--传递行对象-->
@@ -84,44 +79,23 @@
               <el-upload
                   class="avatar-uploader"
                   action="http://localhost:8080/files/upload"
-                  :show-file-list="false"
+                  list-type="picture"
                   :on-success="handleAvatarForm"
               >
-                <img v-if="data.form.avatar" :src="data.form.avatar" style="width:40px; border-radius:50%" class="avatar"/>
-                <el-icon v-else class="avatar-uploader-icon"><Plus/></el-icon>
+                <!--<img v-if="data.form.avatar" :src="data.form.avatar" class="avatar"/>-->
+                <!--<el-icon class="avatar-uploader-icon" v-else><Plus/></el-icon>-->
+                <el-button type="primary">点击添加头像</el-button>
               </el-upload>
             </div>
           </el-form-item>
-          <el-form-item label="同户名" :label-width="formLabelWidth" prop="username">
+          <el-form-item label="账号" :label-width="formLabelWidth" prop="username">
             <el-input v-model="data.form.username" autocomplete="off" placeholder="请输入用户名"/>
-          </el-form-item>
-          <el-form-item label="密码" :label-width="formLabelWidth" prop="password">
-            <el-input show-password v-model="data.form.password" autocomplete="off" placeholder="请输入密码"/>
-          </el-form-item>
-          <el-form-item label="角色" :label-width="formLabelWidth">
-            <el-input v-model="data.form.role" autocomplete="off" placeholder="请输入职务"/>
           </el-form-item>
           <el-form-item label="姓名" :label-width="formLabelWidth">
             <el-input v-model="data.form.name" autocomplete="off" placeholder="请输入姓名"/>
           </el-form-item>
-          <el-form-item label="编号" :label-width="formLabelWidth">
-            <el-input v-model="data.form.no" autocomplete="off" placeholder="请输入编号"/>
-          </el-form-item>
-          <el-form-item label="性别" :label-width="formLabelWidth">
-            <el-radio-group v-model="data.form.sex">
-              <el-radio label="男" value="男"></el-radio>
-              <el-radio label="女" value="女"></el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="年龄" :label-width="formLabelWidth">
-            <el-input-number :min="18" v-model="data.form.age" autocomplete="off" placeholder="请输入年龄"/>
-          </el-form-item>
-          <el-form-item label="描述" :label-width="formLabelWidth">
-            <el-input :rows="3" type="textarea" v-model="data.form.description" autocomplete="off" placeholder="员工描述信息"/>
-            <!--<el-input type="textarea"></el-input>-->
-          </el-form-item>
-          <el-form-item label="部门id" :label-width="formLabelWidth">
-            <el-input v-model="data.form.departmentId" autocomplete="off" placeholder="所在部门编号"/>
+          <el-form-item label="角色" :label-width="formLabelWidth">
+            <el-input v-model="data.form.role" autocomplete="off" placeholder="请输入职务"/>
           </el-form-item>
           <!--<el-form-item label="Zones" :label-width="data.form.formLabelWidth">-->
           <!--  <el-select v-model="data.form.region" placeholder="Please select a zone">-->
@@ -131,15 +105,15 @@
           <!--</el-form-item>-->
         <!--
             TODO: 表单校验
-             1. 在el-form中添加ref="formRef";
-             2. 在script中引入const refRef = ref();    // 用于获取form表单对象
-             3. 在save这个发送请求的函数中做统一的处理函数; formRef.value.validate((valid) => {根据valid的值做出下面逻辑判断})
-             4. 为每个form表单项添加对应规则，并通过prop绑定到所需位置
+            1. 在el-form中添加ref="formRef";
+            2. 在script中引入const refRef = ref();    // 用于获取form表单对象
+            3. 在save这个发送请求的函数中做统一的处理函数; formRef.value.validate((valid) => {根据valid的值做出下面逻辑判断})
+            4. 为每个form表单项添加对应规则，并通过prop绑定到所需位置
 
         -->
         </el-form>
         <template #footer>
-          <div>
+          <div class="dialog-footer">
             <el-button type="info" @click="data.dialogFormVisible = false">取消</el-button>
             <el-button @click="save" type="primary">确定</el-button>
           </div>
@@ -150,12 +124,11 @@
 </template>
 
 <script setup>
-  import {Delete, Edit, Search} from "@element-plus/icons-vue";
+  import {Delete, Edit, Plus, Search} from "@element-plus/icons-vue";
   import {reactive} from 'vue'
   import request from "@/utils/request.js";
   import {ElMessage, ElMessageBox} from "element-plus";
   import {ref} from 'vue';
-  import {Plus} from "@element-plus/icons-vue";
 
   const data = reactive({
         name: null,
@@ -216,8 +189,8 @@
           password:[
             {required: true, message: '请输入密码！！！', trigger: 'blur'}
           ],
-          avatar: [
-            {required: true, trigger: 'blur'}
+          avatar:[
+            {required: true, message: '请选择用户头像！！！', trigger: 'blur'}
           ]
         }
       }
@@ -227,18 +200,18 @@
 
   // 路径跳转发送axios请求/事件触发发送axios请求
   // 方案一  --> 根据js代码执行顺序来发送请求
-  //request.get('/employee/all').then((res) => {
+  //request.get('/admin/all').then((res) => {
   //  data.tableData = res.data;
   //})
 
   // 无法调用，需手动调用
   // 方案二   --》 genasync/await来发送请求并手动调用
   //async () => {
-  //  const res = await request.get('/employee/all');
+  //  const res = await request.get('/admin/all');
   //  data.tableData = res.data;
   //}
   const loadData = async () => {
-    const res = await request.get('/employee/page', {
+    const res = await request.get('/admin/page', {
       params:{
         pageNum:data.currentPage,      // v-model：已经实现双向绑定，故我们可以直接使用最新值
         pageSize:data.pageSize,        // 使用全局设置的page信息
@@ -282,7 +255,7 @@
   // 发送新增
   const add = async () => {
     //alert("新增");
-    const ret = await request.post('/employee/add', data.form);
+    const ret = await request.post('/admin/add', data.form);
     if (ret.code === '200') {
       data.dialogFormVisible = false;
       ElMessage.success('添加成功');
@@ -295,7 +268,7 @@
   // 修改操作
   // TODO : 如果直接使用row会造成浅拷贝，直接修改了table的值，即使取消也会造成前端显示新数据，通过JSON.parsent(row)备份一份，防止污染原始数据（数据库信息不会造成影响，因为我们没有发送请求）
   const handleUpdate = (row) => {
-    //const ret = request.put('/employee/modify', row);
+    //const ret = request.put('/admin/modify', row);
     // 将行数据放到修改面板上
     data.form = JSON.parse(JSON.stringify(row));
     data.dialogFormVisible = true;
@@ -304,7 +277,7 @@
   // 发送修改
   const update = async () => {
     //alert("修改");
-    const ret = await request.put('/employee/modify', data.form);
+    const ret = await request.put('/admin/modify', data.form);
     if (ret.code === '200') {
       data.dialogFormVisible = false;
       ElMessage.success('修改成功');
@@ -318,7 +291,7 @@
   const remove = (id) => {
     const confirm = ElMessageBox.confirm('删除后数据无法恢复，您确认删除吗？', '删除确认', {type:"warning"});
     confirm.then(async() => {
-      const ret = await request.delete('/employee/delete/' + id);
+      const ret = await request.delete('/admin/delete/' + id);
       if (ret.code === '200') {
         ElMessage.success('删除成功');
         loadData();
@@ -340,7 +313,7 @@
     }
     const confirm = ElMessageBox.confirm('是否要进行批量删除', '批量删除', {type:'warning'});
     confirm.then(async () => {
-      const ret = await request.delete('/employee/batch', {data : data.ids});  // 无论如何传递的都是js对象
+      const ret = await request.delete('/admin/batch', {data : data.ids});  // 无论如何传递的都是js对象
       if (ret.code === '200'){
         ElMessage.success('批量操作成功');
         loadData();
@@ -350,8 +323,9 @@
     }).catch();
   }
 
-  // 头像上传逻辑
+  // 图片回显
   const handleAvatarForm = (response) => {
+    console.log(response.data);
     data.form.avatar = response.data;
   }
 
@@ -367,13 +341,13 @@
 </style>
 
 <style>
-.avatar-uploader .el-upload {
-  /*border: 1px dashed var(--el-border-color);*/
-  cursor: pointer;
-  /*position: relative;*/
-  overflow: hidden;
-  transition: var(--el-transition-duration-fast);
-}
+ .avatar-uploader .el-upload {
+   /*border: 1px dashed var(--el-border-color);*/
+   cursor: pointer;
+   /*position: relative;*/
+   overflow: hidden;
+   transition: var(--el-transition-duration-fast);
+ }
 
 .avatar-uploader .el-upload:hover {
   /*border-color: var(--el-color-primary);*/
@@ -386,6 +360,33 @@
   height: 120px;
   text-align: center;
   border-radius: 50%;
-  /*border: 1px solid #35383a;*/
+  border: 1px solid #35383a;
 }
 </style>
+
+<!--
+    总结：
+        文件上传
+          1.  Form
+            <el-upload
+              action="选择完文件后发送的请求路径"
+              :on-success="后端响应结果后需要执行的操作"
+              show-file-list="false"  是否显示图片列表
+              list-type="picture"     会自动解析response.data路径将图片呈现出来
+            >
+              <img v-if="data.form.avatar" :src="data.form.avatar"/>
+              <el-icon v-else><Plus/></el-icon>
+            </el-upload>
+          2.  Table
+              <el-table :data="data.tableData" stripe border @selection-change="handleSelectionChange">
+              <el-table-column type="selection" width="40px"/>
+              <el-table-column label="头像" prop="avatar" width="80px">
+                <template #default="scope">      // scope能够获得每行的item
+                  <img v-if="scope.row.avatar" :src="scope.row.avatar" style="width:40px; height:40px; border-radius:50%"/>
+                </template>
+              </el-table-column>
+          3.  上传逻辑
+              用户从本地上传图片，选择图片后会根据action路径发送post请求添加图片到后台静态目录
+              之后会将 download路径 + 图片路径 返回，前端保存该图片路径数据.
+              根据<img v-if="data.form.avatar"/>来发送请求访问后端的download请求，将图片通过输入流的方式发送给浏览器，得以呈现
+-->
