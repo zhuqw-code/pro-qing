@@ -1,25 +1,65 @@
 package com.zqw.entity;
 
-public class Employee {
+public class Employee extends Account{
     private Integer id;
+    private String username;
+    private String password;
+    private String role;
     private String name;
     private String sex;
     private String no;
     private Integer age;
     private String description;
     private Integer departmentId;
+    private String avatar;
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", no='" + no + '\'' +
                 ", age=" + age +
                 ", description='" + description + '\'' +
                 ", departmentId=" + departmentId +
+                ", avatar='" + avatar + '\'' +
                 '}';
+    }
+
+    public String getavatar() {
+        return avatar;
+    }
+
+    public void setavatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Integer getId() {

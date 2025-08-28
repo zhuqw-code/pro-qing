@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zqw.mapper.AdminMapper">
+    <insert id="add" parameterType="com.zqw.entity.Admin">
+        insert into admin (username, password, role, name, avatar)
+        values(#{username}, #{password}, #{role}, #{name}, #{avatar})
+    </insert>
+    <update id="modify">
+        update admin
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="fuzzyQuery" resultType="com.zqw.entity.Admin">
+        select id, username, role, name, avatar
+        from admin
+        <where>
+            <if test="username != null">username like concat('%', #{username}, '%')</if>
+            <if test="role != null">role like concat('%', #{role}, '%')</if>
+            <if test="name != null">name like concat('%', #{name}, '%')</if>
+        </where>
+        order by id asc
+    </select>
+    <delete id="removeBatch">
+        delete from admin where id in
+                             <foreach collection="list" open="(" close=")" separator="," item="id">#{id}</foreach>
+    </delete>
+</mapper>

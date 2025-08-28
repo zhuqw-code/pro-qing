@@ -38,4 +38,23 @@ public interface EmployeeMapper{
      * @param list
      */
     void removeBatch(List<Integer> list);
+
+    /**
+     * 根据前端返回的账号和密码查询数据库是否含有该用户的信息
+     * @param employee 账号和密码
+     * @return 查询到的用户信息
+     */
+    @Select("select * from where username = #{username} and password = #{password}")
+    Employee login(Employee employee);
+
+    @Select("select * from employee where username = #{useranme}")
+    Employee selectByUsername(String username);
+
+    /**
+     * 根据工号查询是否被暂用
+     * @param no
+     * @return
+     */
+    @Select("select * from employee where no = #{no}")
+    Employee selectByNo(String no);
 }

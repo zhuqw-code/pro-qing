@@ -29,9 +29,14 @@ public class EmployeeController {
         Employee employee = employeeService.selectById(id);
         return Result.success(employee);
     }
+    // @GetMapping("/one")    // 前端query参数，传递的参数如果后端有就必须传（只能多传不能少传）
+    // public Result selectOne(@RequestParam Integer id, @RequestParam String username){      // 不需要指定参数名，只需要保证形参名和url中变量名相同即可
+    //     System.out.println("id = " + id + ",username = " + username);
+    //     Employee employee = employeeService.selectById(id);
+    //     return Result.success(employee);
+    // }
     @GetMapping("/one")    // 前端query参数，传递的参数如果后端有就必须传（只能多传不能少传）
-    public Result selectOne(@RequestParam Integer id, @RequestParam String username){      // 不需要指定参数名，只需要保证形参名和url中变量名相同即可
-        System.out.println("id = " + id + ",username = " + username);
+    public Result selectOne(@RequestParam Integer id){      // 不需要指定参数名，只需要保证形参名和url中变量名相同即可
         Employee employee = employeeService.selectById(id);
         return Result.success(employee);
     }
@@ -70,6 +75,7 @@ public class EmployeeController {
         employeeService.modify(employee);
         return Result.success();
     }
+
     // Delete删除单个信息
     @DeleteMapping("/delete/{id}")
     public Result delete(@PathVariable Integer id){
