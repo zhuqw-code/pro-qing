@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7acc5e29-e0fc-46a9-90c3-2a02868e1dcb" name="Changes" comment="&quot;实现了文件上传功能&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/controller/EntryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/controller/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Article.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/mapper/AdminMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zqw/service/EntryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/service/EmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zqw/SpringbootProApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zqw/SpringbootProApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zqw/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zqw/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zqw/entity/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zqw/entity/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zqw/mapper/EmployeeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zqw/mapper/EmployeeMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zqw/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zqw/service/EmployeeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/EmployeeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/zqw/SpringbootProApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/zqw/SpringbootProApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zqw/entity/Article.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,6 +188,7 @@
       <workItem from="1756180192627" duration="9445000" />
       <workItem from="1756272915984" duration="4822000" />
       <workItem from="1756342272672" duration="10402000" />
+      <workItem from="1756373887286" duration="945000" />
     </task>
     <servers />
   </component>

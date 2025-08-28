@@ -4,7 +4,7 @@ public class Article {
     private Integer id;
     private String title;
     private String img;
-    private String desctiption;
+    private String description;
     private String content;
     private String time;
 
@@ -14,7 +14,7 @@ public class Article {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", img='" + img + '\'' +
-                ", desctiption='" + desctiption + '\'' +
+                ", description='" + description + '\'' +
                 ", content='" + content + '\'' +
                 ", time='" + time + '\'' +
                 '}';
@@ -45,11 +45,11 @@ public class Article {
     }
 
     public String getDesctiption() {
-        return desctiption;
+        return description;
     }
 
-    public void setDesctiption(String desctiption) {
-        this.desctiption = desctiption;
+    public void setDesctiption(String description) {
+        this.description = description;
     }
 
     public String getContent() {
